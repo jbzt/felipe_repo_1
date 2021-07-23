@@ -140,6 +140,9 @@ for (i in 1:16){
 # ejemplos graficos de correlacion de los genes con ct  #
 #########################################################
 
+# ayuda para los graficos de correlacion
+# http://www.sthda.com/english/wiki/ggplot2-scatter-plots-quick-start-guide-r-software-and-data-visualization
+
 # grafico de correlacion basico
 ploteo.cor = ggplot(data = tabla, aes(x = tabla$ct, y = tabla$STAT1 )) + geom_point()
 ploteo.cor
@@ -150,8 +153,14 @@ ploteo.cor
 
 
 # poner bien los nombres de los ejes
+ploteo.cor = ggplot(data = tabla, aes(x = tabla$ct, y = log2(tabla$STAT1 + 1) )) + geom_point() +
+            ylab("nombre_gen")+
+            xlab('ct')
+ploteo.cor
+
 # agregar que en el grafico aparezca estadistica (pearson o spearman)
-# hacer que los puntos tengan un color si vienen de covid y otro si vienen de sano
+
+# agregar la linea de tendencia
 
 
 
